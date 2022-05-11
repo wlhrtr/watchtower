@@ -1,0 +1,32 @@
+{
+    "name": "wlhrtr/watchtower",
+    "description": "Watchtower",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wlhrtr\\Watchtower\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Peter Weilharter",
+            "email": "pw@webundsoehne.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^7.0|^8.0|^9.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "laravel/framework": "^7.0|^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wlhrtr\\Watchtower\\WatchtowerServiceProvider"
+            ]
+        }
+    }
+}
