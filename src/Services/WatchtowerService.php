@@ -22,7 +22,7 @@ class WatchtowerService
         $this->auth();
     }
 
-    public function send(array $data): void
+    public function send(array $data): bool
     {
         $response = Http::acceptJson()
             ->withToken($this->token)
@@ -33,10 +33,10 @@ class WatchtowerService
             $this->send($data);
         }
 
-        dd($response->status(), (string)$response);
+        return $response->status() === 200 ? true : false;
     }
 
-    private function auth()
+    private function auth(): void
     {
         $response = Http::acceptJson()->post($this->url . '/oauth/token', [
             'grant_type' => 'client_credentials',

@@ -43,7 +43,11 @@ class NotifyWatchtowerCommand extends Command
             'packages' => $installedPackages
         ];
 
-        $watchtowerService->send($data);
+        if($watchtowerService->send($data)) {
+            $this->info('Watchtower send was successful');
+        } else {
+            $this->error('Watchtower send was not successful');
+        }
 
         return 0;
     }
